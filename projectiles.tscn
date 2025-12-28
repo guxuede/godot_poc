@@ -1,0 +1,91 @@
+[gd_scene load_steps=12 format=3 uid="uid://b7owewd5khuj7"]
+
+[ext_resource type="Script" uid="uid://cy8e0l4dk0b2f" path="res://lpc_actor.gd" id="1_cc1g7"]
+[ext_resource type="Texture2D" uid="uid://cdks8by4ew1rl" path="res://shadow.png" id="2_btolk"]
+[ext_resource type="Texture2D" uid="uid://dn7psovygf0fw" path="res://Retro Impact Effect Pack 5 A.png" id="3_cc1g7"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0hol4"]
+size = Vector2(32, 19)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_t6k0t"]
+atlas = ExtResource("3_cc1g7")
+region = Rect2(256, 512, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ocerh"]
+atlas = ExtResource("3_cc1g7")
+region = Rect2(320, 512, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_btolk"]
+atlas = ExtResource("3_cc1g7")
+region = Rect2(0, 512, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5txyr"]
+atlas = ExtResource("3_cc1g7")
+region = Rect2(64, 512, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2fuvr"]
+atlas = ExtResource("3_cc1g7")
+region = Rect2(128, 512, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_plmyp"]
+atlas = ExtResource("3_cc1g7")
+region = Rect2(192, 512, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_kkr25"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_t6k0t")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ocerh")
+}],
+"loop": true,
+"name": &"dead",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_btolk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5txyr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2fuvr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_plmyp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_t6k0t")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ocerh")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="Projectiles" type="Node"]
+
+[node name="FireBall" type="CharacterBody2D" parent="."]
+script = ExtResource("1_cc1g7")
+
+[node name="Sprite2D" type="Sprite2D" parent="FireBall"]
+modulate = Color(0.012617188, 0.00024455084, 0.012617188, 0.42352942)
+position = Vector2(0.49999928, 26)
+scale = Vector2(1.21875, 1)
+texture = ExtResource("2_btolk")
+hframes = 4
+vframes = 4
+frame = 15
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="FireBall"]
+position = Vector2(0, 25)
+shape = SubResource("RectangleShape2D_0hol4")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="FireBall"]
+sprite_frames = SubResource("SpriteFrames_kkr25")
+frame_progress = 0.6353308

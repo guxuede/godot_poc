@@ -1,0 +1,23 @@
+[gd_scene load_steps=4 format=3 uid="uid://cq8ne6wtlg3gg"]
+
+[ext_resource type="Texture2D" uid="uid://dbjw4spiqiciy" path="res://icon.svg" id="1_nau6d"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_nau6d"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_nau6d"]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="Player" type="Node2D" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="Player"]
+material = SubResource("ShaderMaterial_nau6d")
+texture = ExtResource("1_nau6d")
+
+[node name="RigidBody2D" type="RigidBody2D" parent="Player"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player/RigidBody2D"]
+shape = SubResource("RectangleShape2D_nau6d")
+
+[node name="RemoteTransform2D" type="RemoteTransform2D" parent="Player/RigidBody2D"]
+remote_path = NodePath("../..")
