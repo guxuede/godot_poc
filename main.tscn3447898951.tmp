@@ -10,5 +10,6 @@ y_sort_enabled = true
 
 [node name="LpcActor" parent="." instance=ExtResource("2_0xm2m")]
 position = Vector2(95, 64)
+SPEED = 100
 
 [node name="Camera2D" type="Camera2D" parent="LpcActor"]
