@@ -6,10 +6,6 @@ class_name Player extends CharacterBody2D
 @export var ACCELERATION = SPEED/0.2
 var directionAngle = 0.0;
 
-var idle := true
-var attack := true
-var walk := true
-
 
 # Size of the game window.
 var screen_size
@@ -21,6 +17,8 @@ func _physics_process(delta: float) -> void:
 	var dir = Vector2.from_angle(directionAngle).normalized()
 	$AnimationTree.set("parameters/Idle/blend_position", dir)
 	$AnimationTree.set("parameters/Walk/blend_position", dir)
+	$AnimationTree.set("parameters/Slash/blend_position", dir)
+	$AnimationTree.set("parameters/Spellcast/blend_position", dir)
 
 
 func faceToMouse():
@@ -40,14 +38,6 @@ func playSkill():
 
 func playSlashSkill():
 	pass
-
-func playAnimation(animationName):
-	pass
-	#var directionName = convertDegreesToDirection(directionAngle)
-	#$Body.play(animationName+"_"+directionName)
-	#var animation = $AnimationPlayer.get_animation(animationName+"_"+directionName)
-	#if animation != null:
-		#$AnimationPlayer.play(animationName+"_"+directionName)
 
 
 func convertDegreesToDirection(angle):

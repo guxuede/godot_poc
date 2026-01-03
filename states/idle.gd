@@ -3,7 +3,6 @@ class_name Idle extends PlayerState
 
 func enter(previous_state_path: String, data := {}) -> void:
 	player.velocity = Vector2.ZERO
-	player.playAnimation("idle")
 
 
 func physics_update(_delta: float) -> void:	
@@ -14,4 +13,4 @@ func physics_update(_delta: float) -> void:
 	elif Input.is_mouse_button_pressed(MouseButton.MOUSE_BUTTON_LEFT):
 		finished.emit(SLASH)
 	else :
-		player.playAnimation("idle")
+		pass
