@@ -14,3 +14,6 @@ func physics_update(_delta: float) -> void:
 		finished.emit(SLASH)
 	else :
 		pass
+
+func exit()  -> void:	
+	player.velocity = Vector2.ZERO

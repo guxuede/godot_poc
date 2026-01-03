@@ -38,16 +38,13 @@ func _physics_process(delta: float) -> void:
 
 
 func _transition_to_next_state(target_state_path: String, data: Dictionary = {}) -> void:
-	#if not state == null and state.name == target_state_path:
-		#printerr(owner.name + ": already in state " + target_state_path)
-		#return
 	if not has_node(target_state_path):
 		printerr(owner.name + ": Trying to transition to state " + target_state_path + " but it does not exist.")
 		return
 
 	var previous_state_path := state.name
 	state.exit()
-	print(previous_state_path + " --> " + target_state_path)
+	#print(previous_state_path + " --> " + target_state_path)
 	state = get_node(target_state_path)
 	state.enter(previous_state_path, data)
 	state_changed.emit()

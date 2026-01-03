@@ -116,12 +116,10 @@ hframes = 4
 vframes = 4
 frame = 15
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="FireBallConllisionShape" type="CollisionShape2D" parent="."]
 position = Vector2(0, 25)
 shape = SubResource("RectangleShape2D_0hol4")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_kkr25")
-animation = &"dead"
-frame = 5
-frame_progress = 1.0
+autoplay = "default"

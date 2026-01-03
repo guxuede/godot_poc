@@ -17,8 +17,8 @@ func _physics_process(delta: float) -> void:
 	var dir = Vector2.from_angle(directionAngle).normalized()
 	$AnimationTree.set("parameters/Idle/blend_position", dir)
 	$AnimationTree.set("parameters/Walk/blend_position", dir)
-	$AnimationTree.set("parameters/Slash/blend_position", dir)
 	$AnimationTree.set("parameters/Spellcast/blend_position", dir)
+	$AnimationTree.set("parameters/Slash/blend_position", dir)
 
 
 func faceToMouse():
@@ -26,6 +26,7 @@ func faceToMouse():
 
 
 func playSkill():
+	print("playSkill")
 	var fire_ball_tscn = preload("res://fire_ball.tscn")
 	var fireBall = fire_ball_tscn.instantiate()
 	fireBall.directionAngle = directionAngle
@@ -37,6 +38,8 @@ func playSkill():
 	get_parent().add_child(fireBall)
 
 func playSlashSkill():
+	print("slash")
+
 	pass
 
 
