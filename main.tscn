@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://dnas2lulqdiag"]
+[gd_scene load_steps=4 format=3 uid="uid://dnas2lulqdiag"]
 
 [ext_resource type="PackedScene" uid="uid://cf5k3ydffxnh0" path="res://tile_map.tscn" id="1_ig7tw"]
 [ext_resource type="PackedScene" uid="uid://c34fmx45sgrlj" path="res://lpc_actor.tscn" id="2_0xm2m"]
+[ext_resource type="PackedScene" uid="uid://dewuxj7k717lr" path="res://Actors/Enemies/Slime/Slime.tscn" id="3_h2yge"]
 
 [node name="main" type="Node2D"]
 y_sort_enabled = true
@@ -13,5 +14,5 @@ position = Vector2(95, 64)
 
 [node name="Camera2D" type="Camera2D" parent="LpcActor"]
 
-[node name="LpcActor2" parent="." instance=ExtResource("2_0xm2m")]
-position = Vector2(161, 91)
+[node name="Slime" parent="." instance=ExtResource("3_h2yge")]
+position = Vector2(172, 84)

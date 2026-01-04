@@ -161,7 +161,7 @@ tracks/11/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [true]
+"values": [false]
 }
 
 [sub_resource type="Animation" id="Animation_itb2w"]
@@ -2855,6 +2855,8 @@ parameters/Walk/blend_position = Vector2(-0.63353616, 0.29746842)
 parameters/Water/blend_position = Vector2(-0.000885725, 0.9784367)
 
 [node name="HurtBox" parent="." instance=ExtResource("13_d37jf")]
+collision_mask = 256
+monitoring = false
 
 [node name="HurtCollisionShape2D" type="CollisionShape2D" parent="HurtBox"]
 position = Vector2(32, -7)
