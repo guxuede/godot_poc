@@ -12,3 +12,6 @@ y_sort_enabled = true
 position = Vector2(95, 64)
 
 [node name="Camera2D" type="Camera2D" parent="LpcActor"]
+
+[node name="LpcActor2" parent="." instance=ExtResource("2_0xm2m")]
+position = Vector2(161, 91)

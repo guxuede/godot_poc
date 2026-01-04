@@ -12,7 +12,7 @@ var screen_size
 
 func _ready():
 	screen_size = get_viewport_rect().size
-	$HitBox.Damaged.connect(takeDamage)
+	#$HitBox.Damaged.connect(takeDamage)
 
 func _physics_process(delta: float) -> void:
 	var dir = Vector2.from_angle(directionAngle).normalized()
