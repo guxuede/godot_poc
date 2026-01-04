@@ -12,6 +12,7 @@ var screen_size
 
 func _ready():
 	screen_size = get_viewport_rect().size
+	$HitBox.Damaged.connect(takeDamage)
 
 func _physics_process(delta: float) -> void:
 	var dir = Vector2.from_angle(directionAngle).normalized()
@@ -19,6 +20,9 @@ func _physics_process(delta: float) -> void:
 	$AnimationTree.set("parameters/Walk/blend_position", dir)
 	$AnimationTree.set("parameters/Spellcast/blend_position", dir)
 	$AnimationTree.set("parameters/Slash/blend_position", dir)
+	$AnimationTree.set("parameters/Slash1/blend_position", dir)
+	$AnimationTree.set("parameters/Shot/blend_position", dir)
+	$AnimationTree.set("parameters/Water/blend_position", dir)
 
 
 func faceToMouse():
@@ -30,7 +34,7 @@ func playSkill():
 	var fire_ball_tscn = preload("res://fire_ball.tscn")
 	var fireBall = fire_ball_tscn.instantiate()
 	fireBall.directionAngle = directionAngle
-	
+
 	var direction = Vector2.from_angle(fireBall.directionAngle) *50
 
 	fireBall.position.x = position.x +  direction.x
@@ -55,3 +59,7 @@ func convertDegreesToDirection(angle):
 	elif direction_id == 0:
 		direction = "right"
 	return direction;
+	
+	
+func takeDamage(_damage:int) -> void:
+	queue_free()

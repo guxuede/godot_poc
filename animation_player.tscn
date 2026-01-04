@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://cfnwog45dalxh"]
+[gd_scene load_steps=20 format=3 uid="uid://cfnwog45dalxh"]
 
 [sub_resource type="Animation" id="Animation_nmxrv"]
 length = 0.001
@@ -177,6 +177,10 @@ tracks/0/keys = {
 "update": 1,
 "values": [Vector2i(9, 8), Vector2i(10, 8)]
 }
+
+[sub_resource type="Animation" id="Animation_olosy"]
+resource_name = "new_animation"
+step = 0.1
 
 [sub_resource type="Animation" id="Animation_lornq"]
 resource_name = "slashWeapon"
@@ -715,6 +719,7 @@ _data = {
 &"idle_left": SubResource("Animation_l23ea"),
 &"idle_right": SubResource("Animation_f7hje"),
 &"idle_up": SubResource("Animation_d37jf"),
+&"new_animation": SubResource("Animation_olosy"),
 &"slash_down": SubResource("Animation_lornq"),
 &"slash_left": SubResource("Animation_i7lfu"),
 &"slash_right": SubResource("Animation_gej2k"),

@@ -5,8 +5,10 @@ class_name PlayerState extends State
 const IDLE = "Idle"
 const WALK = "Walk"
 const SLASH = "Slash"
+const SLASH1 = "Slash1"
 const SPELLCAST = "Spellcast"
-#const SIT = "Sit"
+const SHOT = "Shot"
+const WATER = "Water"
 
 var player: Player
 
