@@ -5,14 +5,12 @@ class_name Player extends CharacterBody2D
 @export var SPEED = 100
 @export var ACCELERATION = SPEED/0.2
 var directionAngle = 0.0;
+var lastGetHurtPosition:Vector2 = Vector2.ZERO
 
-
-# Size of the game window.
-var screen_size
 
 func _ready():
-	screen_size = get_viewport_rect().size
-	#$HitBox.Damaged.connect(takeDamage)
+	print(self)
+	$HitBox.Damaged.connect(takeDamage)
 
 func _physics_process(delta: float) -> void:
 	var dir = Vector2.from_angle(directionAngle).normalized()
@@ -23,10 +21,16 @@ func _physics_process(delta: float) -> void:
 	$AnimationTree.set("parameters/Slash1/blend_position", dir)
 	$AnimationTree.set("parameters/Shot/blend_position", dir)
 	$AnimationTree.set("parameters/Water/blend_position", dir)
-
+	$AnimationTree.set("parameters/Hurt/blend_position", dir)
 
 func faceToMouse():
 	directionAngle =global_position.direction_to(get_global_mouse_position()).angle()
+
+func moveAndFaceToDirrection(dir:Vector2, delta: float):
+	velocity.x = move_toward(velocity.x, dir.x * SPEED, ACCELERATION*delta)
+	velocity.y = move_toward(velocity.y, dir.y * SPEED, ACCELERATION*delta)
+	directionAngle  = dir.angle()
+	move_and_slide()
 
 
 func playSkill():
@@ -60,6 +64,8 @@ func convertDegreesToDirection(angle):
 		direction = "right"
 	return direction;
 	
-	
-func takeDamage(_damage:int) -> void:
-	queue_free()
+
+func takeDamage(_damage:int, hitPostion:Vector2) -> void:
+	lastGetHurtPosition = hitPostion
+	$StateMachine.finished.emit(Hurt)
+	print("take damage", _damage)

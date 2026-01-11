@@ -33,15 +33,20 @@ size = Vector2(28, 20)
 script = ExtResource("1_dou03")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, -30)
 sprite_frames = SubResource("SpriteFrames_ea04c")
 frame_progress = 0.72971267
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(1, 23)
+position = Vector2(0, -8)
 shape = SubResource("RectangleShape2D_w66b7")
 
 [node name="HitBox" parent="." instance=ExtResource("3_ea04c")]
+position = Vector2(0, -30)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HitBox"]
-position = Vector2(1, 23)
+position = Vector2(0, 22)
 shape = SubResource("RectangleShape2D_w66b7")
+
+[node name="NavigationObstacle2D" type="NavigationObstacle2D" parent="."]
+radius = 29.68

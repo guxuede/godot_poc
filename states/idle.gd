@@ -12,6 +12,9 @@ func physics_update(_delta: float) -> void:
 		finished.emit(WALK)
 	elif Input.is_mouse_button_pressed(MouseButton.MOUSE_BUTTON_LEFT):
 		finished.emit(SLASH1)
+	if Input.is_mouse_button_pressed(MouseButton.MOUSE_BUTTON_RIGHT):
+		$"../../NavigationAgent2D".target_position = player.get_global_mouse_position()
+		finished.emit(WALK)
 	else :
 		pass
 

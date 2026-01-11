@@ -9,6 +9,7 @@ const SLASH1 = "Slash1"
 const SPELLCAST = "Spellcast"
 const SHOT = "Shot"
 const WATER = "Water"
+const HURT = "Hurt"
 
 var player: Player
 
