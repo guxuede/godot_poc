@@ -20,8 +20,12 @@ y_sort_enabled = true
 y_sort_enabled = true
 position = Vector2(660, 311)
 
-[node name="Player" parent="Layer1" instance=ExtResource("2_1bvp3")]
-position = Vector2(242, 94)
+[node name="Node1" type="Node" parent="Layer1"]
 
-[node name="Player2" parent="Layer1" instance=ExtResource("2_1bvp3")]
-position = Vector2(97, 80)
+[node name="Player" parent="Layer1/Node1" instance=ExtResource("2_1bvp3")]
+position = Vector2(94, 98)
+
+[node name="Node" type="Node" parent="Layer1"]
+
+[node name="Player" parent="Layer1/Node" instance=ExtResource("2_1bvp3")]
+position = Vector2(148, 83)
