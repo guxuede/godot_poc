@@ -67,5 +67,5 @@ func convertDegreesToDirection(angle):
 
 func takeDamage(_damage:int, hitPostion:Vector2) -> void:
 	lastGetHurtPosition = hitPostion
-	$StateMachine.finished.emit(Hurt)
+	$StateMachine.state.finished.emit(Hurt)
 	print("take damage", _damage)
