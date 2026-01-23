@@ -7,6 +7,8 @@ signal state_changed()
 
 ## The initial state of the state machine. If not set, the first child node is used.
 @export var initial_state: State = null
+@export var eventHandleEnable: bool = true
+
 
 ## The current state of the state machine.
 @onready var state: State = (func get_initial_state() -> State:
@@ -22,11 +24,13 @@ func _ready() -> void:
 	# State machines usually access data from the root node of the scene they're part of: the owner.
 	# We wait for the owner to be ready to guarantee all the data and nodes the states may need are available.
 	await owner.ready
+	eventHandleEnable = owner.eventHandleEnable
 	state.enter("")
 
 
 func _unhandled_input(event: InputEvent) -> void:
-	state.handle_input(event)
+	if eventHandleEnable:
+		state.handle_input(event)
 
 
 func _process(delta: float) -> void:
@@ -38,7 +42,6 @@ func _physics_process(delta: float) -> void:
 
 
 func _transition_to_next_state(target_state_path: String, data: Dictionary = {}) -> void:
-	print("_transition_to_next_state", target_state_path)
 	if not has_node(target_state_path):
 		printerr(owner.name + ": Trying to transition to state " + target_state_path + " but it does not exist.")
 		return

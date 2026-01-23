@@ -1,8 +1,10 @@
-[gd_scene load_steps=4 format=3 uid="uid://dnas2lulqdiag"]
+[gd_scene load_steps=6 format=3 uid="uid://dnas2lulqdiag"]
 
 [ext_resource type="PackedScene" uid="uid://cf5k3ydffxnh0" path="res://tile_map.tscn" id="1_ig7tw"]
 [ext_resource type="PackedScene" uid="uid://e1fg24ahoqkg" path="res://Actor2.tscn" id="2_1bvp3"]
 [ext_resource type="PackedScene" uid="uid://dewuxj7k717lr" path="res://Actors/Enemies/Slime/Slime.tscn" id="3_h2yge"]
+[ext_resource type="Texture2D" uid="uid://byetc2x8yv7oj" path="res://lpc20251222_5.png" id="4_1bvp3"]
+[ext_resource type="Texture2D" uid="uid://ccwirc7nfd0bd" path="res://lpcc2universal.png" id="5_lquwl"]
 
 [node name="main" type="Node2D"]
 z_as_relative = false
@@ -22,6 +24,13 @@ position = Vector2(660, 311)
 
 [node name="Player" parent="Layer1" instance=ExtResource("2_1bvp3")]
 position = Vector2(94, 98)
+eventHandleEnable = true
+bodyTexture = ExtResource("4_1bvp3")
+
+[node name="Camera2D" type="Camera2D" parent="Layer1/Player"]
+zoom = Vector2(2.5, 2.5)
 
 [node name="Player2" parent="Layer1" instance=ExtResource("2_1bvp3")]
 position = Vector2(148, 83)
+bodyTexture = ExtResource("5_lquwl")
+weaponTexture = 2

@@ -2,8 +2,12 @@ class_name Player extends CharacterBody2D
 
 
 # How fast the player will move (pixels/sec).
-@export var SPEED = 100
-@export var ACCELERATION = SPEED/0.2
+@export var SPEED:int = 100
+@export var ACCELERATION:float = SPEED/0.2
+@export var eventHandleEnable: bool = true
+@export var bodyTexture: Texture2D
+@export var weaponTexture: int = 0;
+
 var directionAngle = 0.0;
 var lastGetHurtPosition:Vector2 = Vector2.ZERO
 
@@ -32,6 +36,13 @@ func moveAndFaceToDirrection(dir:Vector2, delta: float):
 	directionAngle  = dir.angle()
 	move_and_slide()
 
+func moveBackAndFromLastHurtPosition(delta: float):
+	print(lastGetHurtPosition,global_position)
+	var dir = lastGetHurtPosition.direction_to(global_position)
+	velocity.x = move_toward(velocity.x, dir.x * SPEED, ACCELERATION*delta)
+	velocity.y = move_toward(velocity.y, dir.y * SPEED, ACCELERATION*delta)
+	directionAngle  = (dir*-1).angle()
+	move_and_slide()
 
 func playSkill():
 	print("playSkill")
