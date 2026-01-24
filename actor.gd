@@ -1,3 +1,4 @@
+@tool
 class_name Player extends CharacterBody2D
 
 
@@ -5,8 +6,14 @@ class_name Player extends CharacterBody2D
 @export var SPEED:int = 100
 @export var ACCELERATION:float = SPEED/0.2
 @export var eventHandleEnable: bool = true
-@export var bodyTexture: Texture2D
-@export var weaponTexture: int = 0;
+@export var bodyTexture: Texture2D:
+	set(v):
+		bodyTexture = v
+		$Body.texture = v
+@export var weaponTexture: int = 0:
+	set(v):
+		weaponTexture = v
+		$Weapon.frame = v
 
 var directionAngle = 0.0;
 var lastGetHurtPosition:Vector2 = Vector2.ZERO

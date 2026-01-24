@@ -1,4 +1,4 @@
-[gd_scene load_steps=116 format=3 uid="uid://e1fg24ahoqkg"]
+[gd_scene load_steps=114 format=3 uid="uid://e1fg24ahoqkg"]
 
 [ext_resource type="Texture2D" uid="uid://cdks8by4ew1rl" path="res://shadow.png" id="1_1axtg"]
 [ext_resource type="Script" uid="uid://da6i301muspyg" path="res://actor.gd" id="1_3e5aw"]
@@ -15,27 +15,6 @@
 [ext_resource type="PackedScene" uid="uid://dv152a1ltagjj" path="res://GeneralNodes/HurtBox/HurtBox.tscn" id="12_hxoe3"]
 [ext_resource type="Script" uid="uid://bjequs265fidc" path="res://states/hurt.gd" id="13_kb7c2"]
 [ext_resource type="PackedScene" uid="uid://2djtt0vkpdqt" path="res://GeneralNodes/HitBox/HitBox.tscn" id="15_fq33k"]
-
-[sub_resource type="GDScript" id="GDScript_8hlhe"]
-resource_name = "bindBody"
-script/source = "extends Sprite2D
-
-
-# Called when the node enters the scene tree for the first time.
-func _ready() -> void:
-	if owner.bodyTexture != null:
-		texture = owner.bodyTexture
-"
-
-[sub_resource type="GDScript" id="GDScript_fq33k"]
-resource_name = "bindWeapon"
-script/source = "extends Sprite2D
-
-
-# Called when the node enters the scene tree for the first time.
-func _ready() -> void:
-	frame = owner.weaponTexture
-"
 
 [sub_resource type="Animation" id="Animation_nmxrv"]
 length = 0.001
@@ -145,7 +124,7 @@ tracks/8/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(32, -7)]
+"values": [Vector2(27, -2)]
 }
 tracks/9/type = "value"
 tracks/9/imported = false
@@ -3511,7 +3490,7 @@ size = Vector2(24, 12)
 size = Vector2(12.5, 10)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fq33k"]
-size = Vector2(13.125, 17)
+size = Vector2(22.5625, 17)
 
 [node name="Player" type="CharacterBody2D"]
 script = ExtResource("1_3e5aw")
@@ -3522,7 +3501,6 @@ texture = ExtResource("2_3e5aw")
 hframes = 13
 vframes = 21
 frame = 139
-script = SubResource("GDScript_8hlhe")
 
 [node name="Weapon" type="Sprite2D" parent="."]
 position = Vector2(23, 41)
@@ -3531,7 +3509,6 @@ texture = ExtResource("3_kb7c2")
 hframes = 10
 vframes = 10
 frame = 49
-script = SubResource("GDScript_fq33k")
 
 [node name="Shadow" type="Sprite2D" parent="."]
 modulate = Color(0.012617188, 0.00024455084, 0.012617188, 0.42352942)
@@ -3595,7 +3572,6 @@ parameters/Walk/blend_position = Vector2(-0.63353616, 0.29746842)
 parameters/Water/blend_position = Vector2(-0.000885725, 0.9784367)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, 26)
 shape = SubResource("RectangleShape2D_1axtg")
 
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
@@ -3610,15 +3586,16 @@ collision_mask = 1
 monitoring = false
 
 [node name="HurtCollisionShape2D" type="CollisionShape2D" parent="HurtBox"]
-position = Vector2(32, -7)
+position = Vector2(27, -2)
 shape = SubResource("RectangleShape2D_vewqj")
 debug_color = Color(0.824726, 0, 0.4171264, 0.41960785)
 
 [node name="HitBox" parent="." instance=ExtResource("15_fq33k")]
+position = Vector2(31, 13)
 collision_layer = 1
 collision_mask = 1
 
 [node name="HitCollisionShape2D" type="CollisionShape2D" parent="HitBox"]
-position = Vector2(-1.5625, 17.5)
+position = Vector2(-31, -15)
 shape = SubResource("RectangleShape2D_fq33k")
-debug_color = Color(0.824726, 0, 0.4171264, 0.41960785)
+debug_color = Color(0.78039217, 0.29411766, 0.16470589, 0.41960785)
