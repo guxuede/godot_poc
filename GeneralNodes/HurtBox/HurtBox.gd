@@ -14,6 +14,6 @@ func _process(delta: float) -> void:
 
 
 func areaObjEntered(a: Area2D) -> void:
-	if a is HitBox:
+	if a is HitBox and a.owner != self.owner:
 		a.takeDamage(damage, self.global_position)
 	pass

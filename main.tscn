@@ -24,13 +24,16 @@ position = Vector2(660, 311)
 
 [node name="Player" parent="Layer1" instance=ExtResource("2_1bvp3")]
 position = Vector2(94, 98)
+ACCELERATION = 500.0
 eventHandleEnable = true
 bodyTexture = ExtResource("4_1bvp3")
+weaponTexture = 52
 
 [node name="Camera2D" type="Camera2D" parent="Layer1/Player"]
 zoom = Vector2(2.5, 2.5)
 
 [node name="Player2" parent="Layer1" instance=ExtResource("2_1bvp3")]
 position = Vector2(148, 83)
+ACCELERATION = 500.0
 bodyTexture = ExtResource("5_lquwl")
 weaponTexture = 2
